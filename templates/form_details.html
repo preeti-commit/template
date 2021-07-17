@@ -1,0 +1,94 @@
+<style>
+body {
+  background: #76b852;
+  background: -webkit-linear-gradient(to top, #76b852, #8DC26F);
+  background: -moz-linear-gradient(to top, #76b852, #8DC26F);
+  background: -o-linear-gradient(to top, #76b852, #8DC26F);
+  background: linear-gradient(to top, #76b852, #8DC26F);
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+  color: #fff;
+  font-weight: 100;
+  text-transform: capitalize;
+  letter-spacing: 4px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.main-agileinfo {
+  width: 35%;
+  margin: 3em auto;
+  background: rgba(0, 0, 0, 0.18);
+  background-size: cover;
+}
+
+.agileits-top {
+  padding: 3em;
+}
+</style>
+
+<div class="sb2-2-employee" style="float:none;">
+	<div class="tz-2 tz-2-admin">
+		<div class="tz-2-com tz-2-main">
+			<h1>Employee List</h1>
+			<div class="split-row" style="margin-top:10px">
+                <div class="col-md-12">
+					<h1>New Employee Register:<a type="create" class="tz-up-btn btn-links"  href=""> Add Employee </a></h1>
+                    <div class="box-inn-sp ad-inn-page">
+                        <div class="table-container table-responsive">
+						<div class="row">
+							<div class="col-md-12">
+								<table class="table">
+									<thead>
+										<tr>
+											<th> Employee Name</th>
+											<th>Email</th>
+											<th>Salary</th>
+											<th>Deduction</th>
+											<th>Gross_pay</th>
+											<th>Edit</th>
+											<th>Delete</th>
+										</tr>
+									</thead>
+									<tbody>
+									{% for data in employe_detail %}
+										<tr>
+											<td>{{data.employee_name}}</td>
+											<td>{{data.email}}</td>
+											<td>{{data.salary}}</td>
+											<td>{{data.deduction}}</td>
+											<td>{{data.gross_pay}}</td>
+											<td> <a type="create" class="tz-up-btn btn-links"  href="{% url 'update' data.id %}">Update</a></td>
+											<td> <a type="create1" class="tz-up-btn btn-links"  href="{% url 'delete' data.id %}">Delete</a></td>
+											<td>
+												<div class="row">
+													<div class="col-md-6">
+														<a class="btn btn-primary rounded-0" href="" title="Edit"><i style="color: #fff;font-size: 18px;" class="fa fa-edit" ></i></a>
+													</div>
+<!--													<div class="col-md-6">-->
+<!--														<a class="btn btn-danger btn-sm rounded-0" title="Delete"><i style="color: #fff;font-size: 18px;" class="fa fa-trash"></i></a>-->
+<!--													</div>-->
+												</div>
+											</td>
+
+												<div class="row">
+													<div class="col-md-6">
+														<a class="btn btn-primary rounded-0" href="" title="Edit"><i style="color: #fff;font-size: 18px;" class="fa fa-edit" ></i></a>
+													</div>
+												</div>
+											</td>
+										</tr>
+									{% endfor %}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

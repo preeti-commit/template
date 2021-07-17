@@ -1,0 +1,103 @@
+{% block body %}
+<style>
+body {
+  background: #76b852;
+  background: -webkit-linear-gradient(to top, #76b852, #8DC26F);
+  background: -moz-linear-gradient(to top, #76b852, #8DC26F);
+  background: -o-linear-gradient(to top, #76b852, #8DC26F);
+  background: linear-gradient(to top, #76b852, #8DC26F);
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+  color: #fff;
+  font-weight: 100;
+  text-transform: capitalize;
+  letter-spacing: 4px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.main-agileinfo {
+  width: 35%;
+  margin: 3em auto;
+  background: rgba(0, 0, 0, 0.18);
+  background-size: cover;
+}
+
+.agileits-top {
+  padding: 3em;
+}
+
+input[type="text"], input[type="employee_name"] ,input[type="email"], input[type="salary"], input[type="deduction"]{
+  font-size: 0.9em;
+  color: #fff;
+  font-weight: 100;
+  width: 94.5%;
+  display: block;
+  border: none;
+  padding: 0.8em;
+  border: solid 1px rgba(255, 255, 255, 0.37);
+  transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #fff 4%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #fff 4%);
+  background-position: -800px 0;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+input[type="submit"] {
+  font-size: .9em;
+  color: #fff;
+  background: #76b852;
+  outline: none;
+  border: 1px solid #76b852;
+  cursor: pointer;
+  padding: 0.9em;
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 2em 0;
+  letter-spacing: 4px;
+}
+
+
+
+</style>
+<form id="update employee"  method = "POST" action="{% url 'employee_update' emp_info.id %}" >
+		<h1>Employee Update Form!</h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+    {% csrf_token %}
+    <div class="col-md-8">
+    </div>
+        <div class="from-group">
+            <label for="employee">Employee Name</label>
+            <input type="text" name="employee" value="{{emp_info.employee_name}}"class="form-control" required="required"/>
+        </div>
+
+        <div class="from-group">
+            <label for="email">Email</label>
+            <input type="text" value="{{emp_info.email}}" name="email" class="form-control" required="required"/>
+        </div>
+
+         <div class="from-group">
+            <label for="salary">Salary</label>
+            <input type="text" name="salary" value="{{emp_info.salary}}" class="form-control" required="required"/>
+        </div>
+
+        <div class="from-group">
+            <label for="deduction">Deduction</label>
+            <input type="text" name="deduction" value="{{emp_info.deduction}}"  class="form-control" required="required"/>
+
+        </div>
+      <div class="clearfix">
+         <input type="submit" class="signupbtn" value="Update"/>
+    </div>
+            </div>
+</form>
+{% endblock %}
